@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="nodeTodo">
+  <head>
+    <title>Todo App - with Node + Express + Angular + PostgreSQL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+	 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body ng-controller="mainController">
+ <div class="container">
+      <div class="header">
+        <h1>KD Todo App</h1>
+        <hr>
+        <h1 class="lead">Node + Express + Angular + PostgreSQL</h1>
+      </div>
+      <div class="todo-form">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control input-lg" placeholder="Enter text..." ng-model="formData.text">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="createTodo()">Add To-Do</button>
+        </form>
+      </div>
+      <br>
+      <div class="todo-list">
+        <ul ng-repeat="todo in todoData">
+		<li><h3 ng-class='{"li-strike":todo.complete}'><input class="lead" ng-checked="todo.complete" 
+		ng-model="todo.complete" type="checkbox" ng-click="completeTodo(todo)">&nbsp; {{ todo.text }} &nbsp; <button ng-click="deleteTodo(todo.id)">Remove</button> </li>
+		</h3><hr>
+		</ul>
+      </div>
+    </div>
+    <script src="javascripts/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="javascripts/bootstrap.min.js" type="text/javascript"></script>
+	<script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/app.js"></script>	
+  </body>
+</html>
